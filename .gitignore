@@ -44,3 +44,13 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# Generated dart files
+lib/core/env/env.g.dart
+lib/**/*.freezed.dart
+lib/**/*.g.dart
+
+# Flutter/Dart build files
+.dart_tool/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
