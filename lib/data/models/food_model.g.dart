@@ -7,12 +7,12 @@ part of 'food_model.dart';
 // **************************************************************************
 
 _FoodModel _$FoodModelFromJson(Map<String, dynamic> json) => _FoodModel(
-  id: (json['id'] as num).toInt(),
+  id: json['id'] as String,
   img: json['img'] as String,
   name: json['name'] as String,
   description: json['dsc'] as String?,
-  price: (json['price'] as num).toDouble(),
-  rate: (json['rate'] as num?)?.toDouble(),
+  price: json['price'] == null ? 0.0 : _parseDouble(json['price']),
+  rate: _parseDoubleNullable(json['rate']),
   country: json['country'] as String?,
 );
 

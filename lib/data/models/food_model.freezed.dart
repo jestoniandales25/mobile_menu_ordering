@@ -15,7 +15,10 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$FoodModel {
 
-@JsonKey(name: 'id') int get id;@JsonKey(name: 'img') String get img;@JsonKey(name: 'name') String get name;@JsonKey(name: 'dsc') String? get description;@JsonKey(name: 'price') double get price;@JsonKey(name: 'rate') double? get rate;@JsonKey(name: 'country') String? get country;
+@JsonKey(name: 'id') String get id;// ✅ String not int
+@JsonKey(name: 'img') String get img;@JsonKey(name: 'name') String get name;@JsonKey(name: 'dsc') String? get description;@JsonKey(name: 'price', fromJson: _parseDouble) double get price;// ✅ nullable safe
+@JsonKey(name: 'rate', fromJson: _parseDoubleNullable) double? get rate;// ✅ nullable
+@JsonKey(name: 'country') String? get country;
 /// Create a copy of FoodModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +51,7 @@ abstract mixin class $FoodModelCopyWith<$Res>  {
   factory $FoodModelCopyWith(FoodModel value, $Res Function(FoodModel) _then) = _$FoodModelCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'id') int id,@JsonKey(name: 'img') String img,@JsonKey(name: 'name') String name,@JsonKey(name: 'dsc') String? description,@JsonKey(name: 'price') double price,@JsonKey(name: 'rate') double? rate,@JsonKey(name: 'country') String? country
+@JsonKey(name: 'id') String id,@JsonKey(name: 'img') String img,@JsonKey(name: 'name') String name,@JsonKey(name: 'dsc') String? description,@JsonKey(name: 'price', fromJson: _parseDouble) double price,@JsonKey(name: 'rate', fromJson: _parseDoubleNullable) double? rate,@JsonKey(name: 'country') String? country
 });
 
 
@@ -68,7 +71,7 @@ class _$FoodModelCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? img = null,Object? name = null,Object? description = freezed,Object? price = null,Object? rate = freezed,Object? country = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,img: null == img ? _self.img : img // ignore: cast_nullable_to_non_nullable
+as String,img: null == img ? _self.img : img // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,price: null == price ? _self.price : price // ignore: cast_nullable_to_non_nullable
@@ -159,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'img')  String img, @JsonKey(name: 'name')  String name, @JsonKey(name: 'dsc')  String? description, @JsonKey(name: 'price')  double price, @JsonKey(name: 'rate')  double? rate, @JsonKey(name: 'country')  String? country)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  String id, @JsonKey(name: 'img')  String img, @JsonKey(name: 'name')  String name, @JsonKey(name: 'dsc')  String? description, @JsonKey(name: 'price', fromJson: _parseDouble)  double price, @JsonKey(name: 'rate', fromJson: _parseDoubleNullable)  double? rate, @JsonKey(name: 'country')  String? country)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _FoodModel() when $default != null:
 return $default(_that.id,_that.img,_that.name,_that.description,_that.price,_that.rate,_that.country);case _:
@@ -180,7 +183,7 @@ return $default(_that.id,_that.img,_that.name,_that.description,_that.price,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'img')  String img, @JsonKey(name: 'name')  String name, @JsonKey(name: 'dsc')  String? description, @JsonKey(name: 'price')  double price, @JsonKey(name: 'rate')  double? rate, @JsonKey(name: 'country')  String? country)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'id')  String id, @JsonKey(name: 'img')  String img, @JsonKey(name: 'name')  String name, @JsonKey(name: 'dsc')  String? description, @JsonKey(name: 'price', fromJson: _parseDouble)  double price, @JsonKey(name: 'rate', fromJson: _parseDoubleNullable)  double? rate, @JsonKey(name: 'country')  String? country)  $default,) {final _that = this;
 switch (_that) {
 case _FoodModel():
 return $default(_that.id,_that.img,_that.name,_that.description,_that.price,_that.rate,_that.country);case _:
@@ -200,7 +203,7 @@ return $default(_that.id,_that.img,_that.name,_that.description,_that.price,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'id')  int id, @JsonKey(name: 'img')  String img, @JsonKey(name: 'name')  String name, @JsonKey(name: 'dsc')  String? description, @JsonKey(name: 'price')  double price, @JsonKey(name: 'rate')  double? rate, @JsonKey(name: 'country')  String? country)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'id')  String id, @JsonKey(name: 'img')  String img, @JsonKey(name: 'name')  String name, @JsonKey(name: 'dsc')  String? description, @JsonKey(name: 'price', fromJson: _parseDouble)  double price, @JsonKey(name: 'rate', fromJson: _parseDoubleNullable)  double? rate, @JsonKey(name: 'country')  String? country)?  $default,) {final _that = this;
 switch (_that) {
 case _FoodModel() when $default != null:
 return $default(_that.id,_that.img,_that.name,_that.description,_that.price,_that.rate,_that.country);case _:
@@ -215,15 +218,18 @@ return $default(_that.id,_that.img,_that.name,_that.description,_that.price,_tha
 @JsonSerializable()
 
 class _FoodModel implements FoodModel {
-  const _FoodModel({@JsonKey(name: 'id') required this.id, @JsonKey(name: 'img') required this.img, @JsonKey(name: 'name') required this.name, @JsonKey(name: 'dsc') this.description, @JsonKey(name: 'price') required this.price, @JsonKey(name: 'rate') this.rate, @JsonKey(name: 'country') this.country});
+  const _FoodModel({@JsonKey(name: 'id') required this.id, @JsonKey(name: 'img') required this.img, @JsonKey(name: 'name') required this.name, @JsonKey(name: 'dsc') this.description, @JsonKey(name: 'price', fromJson: _parseDouble) this.price = 0.0, @JsonKey(name: 'rate', fromJson: _parseDoubleNullable) this.rate, @JsonKey(name: 'country') this.country});
   factory _FoodModel.fromJson(Map<String, dynamic> json) => _$FoodModelFromJson(json);
 
-@override@JsonKey(name: 'id') final  int id;
+@override@JsonKey(name: 'id') final  String id;
+// ✅ String not int
 @override@JsonKey(name: 'img') final  String img;
 @override@JsonKey(name: 'name') final  String name;
 @override@JsonKey(name: 'dsc') final  String? description;
-@override@JsonKey(name: 'price') final  double price;
-@override@JsonKey(name: 'rate') final  double? rate;
+@override@JsonKey(name: 'price', fromJson: _parseDouble) final  double price;
+// ✅ nullable safe
+@override@JsonKey(name: 'rate', fromJson: _parseDoubleNullable) final  double? rate;
+// ✅ nullable
 @override@JsonKey(name: 'country') final  String? country;
 
 /// Create a copy of FoodModel
@@ -259,7 +265,7 @@ abstract mixin class _$FoodModelCopyWith<$Res> implements $FoodModelCopyWith<$Re
   factory _$FoodModelCopyWith(_FoodModel value, $Res Function(_FoodModel) _then) = __$FoodModelCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'id') int id,@JsonKey(name: 'img') String img,@JsonKey(name: 'name') String name,@JsonKey(name: 'dsc') String? description,@JsonKey(name: 'price') double price,@JsonKey(name: 'rate') double? rate,@JsonKey(name: 'country') String? country
+@JsonKey(name: 'id') String id,@JsonKey(name: 'img') String img,@JsonKey(name: 'name') String name,@JsonKey(name: 'dsc') String? description,@JsonKey(name: 'price', fromJson: _parseDouble) double price,@JsonKey(name: 'rate', fromJson: _parseDoubleNullable) double? rate,@JsonKey(name: 'country') String? country
 });
 
 
@@ -279,7 +285,7 @@ class __$FoodModelCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? img = null,Object? name = null,Object? description = freezed,Object? price = null,Object? rate = freezed,Object? country = freezed,}) {
   return _then(_FoodModel(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,img: null == img ? _self.img : img // ignore: cast_nullable_to_non_nullable
+as String,img: null == img ? _self.img : img // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
 as String?,price: null == price ? _self.price : price // ignore: cast_nullable_to_non_nullable
