@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_menu_ordering/blocs/cart_bloc.dart';
 import 'package:mobile_menu_ordering/blocs/food_bloc.dart';
-import 'package:mobile_menu_ordering/core/constant/api_constants.dart';
-import 'package:mobile_menu_ordering/core/constant/app_colors.dart';
+import 'package:mobile_menu_ordering/core/constants/api_constants.dart';
+import 'package:mobile_menu_ordering/core/constants/app_colors.dart';
 import 'package:mobile_menu_ordering/data/models/food_model.dart';
 import 'package:mobile_menu_ordering/main.dart';
 import 'package:provider/provider.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_menu_ordering/blocs/food_bloc.dart';
-import 'package:mobile_menu_ordering/core/constant/app_colors.dart';
+import 'package:mobile_menu_ordering/core/constants/app_colors.dart';
 import 'package:provider/provider.dart';
 
 
