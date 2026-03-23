@@ -17,10 +17,12 @@ class CartBloc extends ChangeNotifier {
 
   String get formattedTotal => '\$${totalPrice.toStringAsFixed(2)}';
 
-  bool isInCart(int foodId) =>
+  // ✅ String id — matches food_model.dart
+  bool isInCart(String foodId) =>
       _items.any((item) => item.food.id == foodId);
 
-  int quantityOf(int foodId) {
+  // ✅ String id
+  int quantityOf(String foodId) {
     final index = _items.indexWhere((item) => item.food.id == foodId);
     return index != -1 ? _items[index].quantity : 0;
   }
@@ -38,8 +40,8 @@ class CartBloc extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Remove one quantity — removes item if quantity reaches 0
-  void removeItem(int foodId) {
+  // ✅ String id — remove one quantity
+  void removeItem(String foodId) {
     final index = _items.indexWhere((item) => item.food.id == foodId);
     if (index != -1) {
       if (_items[index].quantity > 1) {
@@ -53,8 +55,8 @@ class CartBloc extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Remove entire item regardless of quantity
-  void removeItemCompletely(int foodId) {
+  // ✅ String id — remove entire item
+  void removeItemCompletely(String foodId) {
     _items.removeWhere((item) => item.food.id == foodId);
     notifyListeners();
   }
