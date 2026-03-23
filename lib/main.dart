@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_menu_ordering/blocs/cart_bloc.dart';
 import 'package:mobile_menu_ordering/blocs/food_bloc.dart';
-import 'package:mobile_menu_ordering/core/constant/app_colors.dart';
+import 'package:mobile_menu_ordering/core/constants/app_colors.dart';
 import 'package:mobile_menu_ordering/data/repositories/food_repository.dart';
 import 'package:mobile_menu_ordering/ui/screens/cart_screen.dart';
 import 'package:mobile_menu_ordering/ui/screens/dashboard_screen.dart';
